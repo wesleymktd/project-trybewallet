@@ -1,2 +1,2 @@
-const LOGIN_FORM = 'LOGIN_FORM';
-export default LOGIN_FORM;
+export const LOGIN_FORM = 'LOGIN_FORM';
+export const FETCH_CURRENCIE = 'FETCH_CURRENCIE';
