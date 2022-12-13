@@ -36,7 +36,6 @@ class WalletForm extends Component {
     const { value } = this.state;
     const fetchCurrency = await getCurrencies();
     delete fetchCurrency.USDT;
-    console.log(this.state);
     // const valueAsk = fetchCurrency[currency].ask;
     // const valueCalculed = +(valueAsk * value).toFixed(2); // calculo conversão
     this.setState((prevState) => ({
@@ -51,7 +50,6 @@ class WalletForm extends Component {
         description: '',
       }));
     });
-    console.log(this.state);
   };
 
   render() {
