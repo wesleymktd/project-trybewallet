@@ -3,6 +3,7 @@ import { FETCH_CURRENCIE,
   LOGIN_FORM,
   // SAVE_FORM,
   FETCH_SAVE_EXCHANGE_RATE,
+  DELETE_LIST,
 } from './actionTypes';
 import getCurrencies from '../../services/getCurrencies';
 
@@ -15,6 +16,10 @@ export const submitLogin = (emailLogin) => ({
 //   type: SAVE_FORM,
 //   payload: state,
 // });
+export const deletForm = (payload) => ({
+  type: DELETE_LIST,
+  payload,
+});
 
 const saveDataFetch = (currency) => ({
   type: FETCH_SAVE_EXCHANGE_RATE,

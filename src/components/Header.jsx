@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 class Header extends Component {
   // const valueAsk = fetchCurrency[currency].ask;
   // const valueCalculed = +(valueAsk * value).toFixed(2);
+
   render() {
     const { email, expenses } = this.props;
+    const sumTotal = expenses
+      .reduce((acum, e) => acum + e.value * e.exchangeRates[e.currency].ask, 0);
     return (
       <header>
         <div
@@ -14,15 +17,11 @@ class Header extends Component {
         >
           { email }
         </div>
-        <div
+        <span
           data-testid="total-field"
         >
-          { expenses.reduce((acum, expense) => {
-            const valueAsk = expense.exchangeRates[expense.currency].ask;
-            const valueCalculed = +(valueAsk * expense.value).toFixed(2);
-            return acum + valueCalculed;
-          }, 0.00) }
-        </div>
+          {(+sumTotal).toFixed(2)}
+        </span>
         <div
           data-testid="header-currency-field"
         >
