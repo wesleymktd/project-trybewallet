@@ -150,7 +150,7 @@ const mapStateToProps = (global) => ({
 });
 
 WalletForm.propTypes = {
-  currencies: PropTypes.string.isRequired,
+  currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

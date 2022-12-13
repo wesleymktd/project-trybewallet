@@ -7,8 +7,6 @@ class Header extends Component {
   // const valueCalculed = +(valueAsk * value).toFixed(2);
   render() {
     const { email, expenses } = this.props;
-    console.log(expenses);
-
     return (
       <header>
         <div
@@ -19,10 +17,10 @@ class Header extends Component {
         <div
           data-testid="total-field"
         >
-          { expenses.reduce((curr, expense) => {
+          { expenses.reduce((acum, expense) => {
             const valueAsk = expense.exchangeRates[expense.currency].ask;
             const valueCalculed = +(valueAsk * expense.value).toFixed(2);
-            return valueCalculed + curr;
+            return acum + valueCalculed;
           }, 0.00) }
         </div>
         <div
@@ -42,7 +40,9 @@ const mapStateToProps = (global) => ({
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  expenses: PropTypes.number.isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.shape({
+    description: PropTypes.string,
+  })).isRequired,
 };
 
 export default connect(mapStateToProps)(Header);
