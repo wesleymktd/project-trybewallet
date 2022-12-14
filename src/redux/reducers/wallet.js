@@ -2,6 +2,8 @@
 import { FETCH_CURRENCIE,
   FETCH_SAVE_EXCHANGE_RATE,
   DELETE_LIST,
+  ID_EDIT,
+  SAVE_EDIT,
 } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
@@ -34,6 +36,18 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: action.payload,
+    };
+  case ID_EDIT:
+    return {
+      ...state,
+      idToEdit: action.payload,
+      editor: true,
+    };
+  case SAVE_EDIT:
+    return {
+      ...state,
+      expenses: action.payload,
+      editor: false,
     };
 
   default: return state;

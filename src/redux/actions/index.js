@@ -4,8 +4,20 @@ import { FETCH_CURRENCIE,
   // SAVE_FORM,
   FETCH_SAVE_EXCHANGE_RATE,
   DELETE_LIST,
+  ID_EDIT,
+  SAVE_EDIT,
 } from './actionTypes';
 import getCurrencies from '../../services/getCurrencies';
+
+export const idEdit = (id) => ({
+  type: ID_EDIT,
+  payload: id,
+});
+
+export const saveEdit = (expensesEdit) => ({
+  type: SAVE_EDIT,
+  payload: expensesEdit,
+});
 
 export const submitLogin = (emailLogin) => ({
   type: LOGIN_FORM,
