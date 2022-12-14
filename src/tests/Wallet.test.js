@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
 import { renderWithRouterAndRedux } from './helpers/renderWith';
 import App from '../App';
 
@@ -18,13 +18,13 @@ const mock = {
 
 describe('teste de cobertura "Wallet component" rota "/carteira"...', () => {
   test('Verificando se os elementos da Header são renderizados', () => {
-    const { history } = renderWithRouterAndRedux(<App />, {
+    renderWithRouterAndRedux(<App />, {
       initialEntries: ['/carteira'],
       initialState: mock,
     });
     const emailEl = screen.getByTestId('email-field');
     // expect(emailEl).toHaveTextContent('wesleymktd@gmail.com');
-    expect(emailEl).toHaveTextContent('wesleymktd@gm.com');
+    expect(emailEl).toHaveTextContent('wesleymktd@gmail.com');
     // const { pathname } = history.location;
     // expect(pathname).toBe('/xablau');
   });
