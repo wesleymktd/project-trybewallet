@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
-  // const valueAsk = fetchCurrency[currency].ask;
-  // const valueCalculed = +(valueAsk * value).toFixed(2);
-
   render() {
     const { email, expenses } = this.props;
     const sumTotal = expenses
