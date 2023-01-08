@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deletForm, idEdit } from '../redux/actions';
+import './Table.css';
 
 class Table extends Component {
   buttonDelet = (id) => {
@@ -21,7 +22,7 @@ class Table extends Component {
     const { expense } = this.props;
     return (
       <div>
-        <table>
+        <table className="customers">
           <thead>
             <tr>
               <th>Descrição</th>

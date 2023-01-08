@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCurrencies, fetchExchangeRates, saveEdit } from '../redux/actions';
 import getCurrencies from '../services/getCurrencies';
+import './WalletForm.css';
 
 const PAYMENT = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
 const EXPENSE_TAG = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -89,7 +90,10 @@ class WalletForm extends Component {
     const { currencies, edit } = this.props;
 
     return (
-      <form onSubmit={ this.saveForm }>
+      <form
+        className="wallet-form"
+        onSubmit={ this.saveForm }
+      >
         <label htmlFor="value">
           Valor:
           <input
@@ -162,6 +166,7 @@ class WalletForm extends Component {
         </label>
 
         <button
+          className="button-wallet"
           type="submit"
           onClick={ (edit ? this.editExpense : this.saveForm) }
         >
