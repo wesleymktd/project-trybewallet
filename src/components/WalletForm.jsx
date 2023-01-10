@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCurrencies, fetchExchangeRates, saveEdit } from '../redux/actions';
 import getCurrencies from '../services/getCurrencies';
-import './WalletForm.css';
 
 const PAYMENT = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
 const EXPENSE_TAG = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -94,84 +93,92 @@ class WalletForm extends Component {
         className="wallet-form"
         onSubmit={ this.saveForm }
       >
-        <label htmlFor="value">
-          Valor:
-          <input
-            id="value"
-            type="number"
-            data-testid="value-input"
-            value={ value }
-            name="value"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="description">
-          Descrição:
-          <input
-            id="description"
-            type="text"
-            data-testid="description-input"
-            value={ description }
-            name="description"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="currency">
-          Moeda:
-          <select
-            name="currency"
-            id="currency"
-            data-testid="currency-input"
-            value={ currency }
-            onChange={ this.handleChange }
+        <div className="container-wallet-form">
+          <label htmlFor="value">
+            Valor:
+            <input
+              className="label-wallet-form"
+              id="value"
+              type="number"
+              data-testid="value-input"
+              value={ value }
+              name="value"
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="description">
+            Descrição:
+            <input
+              className="label-wallet-form"
+              id="description"
+              type="text"
+              data-testid="description-input"
+              value={ description }
+              name="description"
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="currency">
+            Moeda:
+            <select
+              className="input-wallet-form"
+              name="currency"
+              id="currency"
+              data-testid="currency-input"
+              value={ currency }
+              onChange={ this.handleChange }
+            >
+              {
+                currencies.map((coin, index) => (
+                  <option key={ index }>{ coin }</option>
+                ))
+              }
+            </select>
+          </label>
+          <label htmlFor="tag">
+            Categoria:
+            <select
+              className="input-wallet-form"
+              name="tag"
+              id="tag"
+              data-testid="tag-input"
+              value={ tag }
+              onChange={ this.handleChange }
+            >
+              {
+                EXPENSE_TAG.map((descriptionTag, index) => (
+                  <option key={ index }>{ descriptionTag }</option>
+                ))
+              }
+            </select>
+          </label>
+          <label htmlFor="method">
+            Método de pagamento:
+            <select
+              className="input-wallet-form"
+              name="method"
+              id="method"
+              data-testid="method-input"
+              value={ method }
+              onChange={ this.handleChange }
+            >
+              {
+                PAYMENT.map((payment, index) => (
+                  <option key={ index }>{ payment }</option>
+                ))
+              }
+            </select>
+          </label>
+        </div>
+        <div className="container-button-add-wallet-form">
+          <button
+            className="button-add-walletForm"
+            type="submit"
+            onClick={ (edit ? this.editExpense : this.saveForm) }
           >
-            {
-              currencies.map((coin, index) => (
-                <option key={ index }>{ coin }</option>
-              ))
-            }
-          </select>
-        </label>
-        <label htmlFor="tag">
-          Categoria:
-          <select
-            name="tag"
-            id="tag"
-            data-testid="tag-input"
-            value={ tag }
-            onChange={ this.handleChange }
-          >
-            {
-              EXPENSE_TAG.map((descriptionTag, index) => (
-                <option key={ index }>{ descriptionTag }</option>
-              ))
-            }
-          </select>
-        </label>
-        <label htmlFor="method">
-          Método de pagamento:
-          <select
-            name="method"
-            id="method"
-            data-testid="method-input"
-            value={ method }
-            onChange={ this.handleChange }
-          >
-            {
-              PAYMENT.map((payment, index) => (
-                <option key={ index }>{ payment }</option>
-              ))
-            }
-          </select>
-        </label>
-
-        <button
-          className="button-wallet"
-          type="submit"
-          onClick={ (edit ? this.editExpense : this.saveForm) }
-        >
-          {edit ? 'Editar despesa' : 'Adicionar despesa'}
-        </button>
+            {edit ? 'Editar despesa' : 'Adicionar despesa'}
+          </button>
+        </div>
       </form>
     );
   }

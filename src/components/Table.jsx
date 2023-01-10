@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deletForm, idEdit } from '../redux/actions';
-import './Table.css';
+import photoEdit from '../pages/css/Vector (2).png';
+import photoDelet from '../pages/css/Vector (3).png';
 
 class Table extends Component {
   buttonDelet = (id) => {
@@ -21,48 +22,58 @@ class Table extends Component {
   render() {
     const { expense } = this.props;
     return (
-      <div>
-        <table className="customers">
+      <div className="table-container">
+        <table className="table">
           <thead>
             <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
+              <th className="table-title">Descrição</th>
+              <th className="table-title">Tag</th>
+              <th className="table-title">Método de pagamento</th>
+              <th className="table-title">Valor</th>
+              <th className="table-title">Moeda</th>
+              <th className="table-title">Câmbio utilizado</th>
+              <th className="table-title">Valor convertido</th>
+              <th className="table-title">Moeda de conversão</th>
+              <th className="table-title">Editar/Excluir</th>
             </tr>
           </thead>
           <tbody>
             {expense.map((
               { id, description, tag, method, value, exchangeRates, currency },
             ) => (
-              <tr key={ id }>
-                <td>{ description }</td>
-                <td>{ tag }</td>
-                <td>{ method }</td>
-                <td>{ parseFloat(value).toFixed(2) }</td>
-                <td>{ exchangeRates[currency].name }</td>
-                <td>{ parseFloat(exchangeRates[currency].ask).toFixed(2) }</td>
-                <td>{ parseFloat(exchangeRates[currency].ask * value).toFixed(2) }</td>
-                <td>Real</td>
+              <tr key={ id } className="container-table-elements">
+                <td className="table-elements">{ description }</td>
+                <td className="table-elements">{ tag }</td>
+                <td className="table-elements">{ method }</td>
+                <td className="table-elements">{ parseFloat(value).toFixed(2) }</td>
+                <td className="table-elements">{ exchangeRates[currency].name }</td>
+                <td
+                  className="table-elements"
+                >
+                  { parseFloat(exchangeRates[currency].ask).toFixed(2) }
+                </td>
+                <td
+                  className="table-elements"
+                >
+                  { parseFloat(exchangeRates[currency].ask * value).toFixed(2) }
+                </td>
+                <td className="table-elements">Real</td>
                 <td>
                   <button
+                    className="button-table"
                     type="button"
                     data-testid="delete-btn"
                     onClick={ () => this.buttonDelet(id) }
                   >
-                    Excluir
+                    <img src={ photoDelet } alt="delet-button" />
                   </button>
                   <button
+                    className="button-table"
                     type="button"
                     data-testid="edit-btn"
                     onClick={ () => this.editExpense(id) }
                   >
-                    Editar
+                    <img src={ photoEdit } alt="edit-button" />
                   </button>
                 </td>
               </tr>
