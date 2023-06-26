@@ -1,8 +1,12 @@
 ## 🧐 Sobre
 
-<h4 align="left"> 
-	Esse projeto se trata de uma carteira virtual que faz requisição em uma API, que faz a conversão da moeda, onde temos a possibilidade de salvar a informação, excluir e editar.
-</h4>
+<p align="left"> 
+	Esse projeto se trata de uma carteira de controle de gastos com conversor de moedas, ao utilizar este aplicativo o usuário poderá:
+
+- Adicionar, remover e editar uma despesa;
+- Visualizar uma tabela com seus gastos;
+- Visualizar o gasto total convertido em uma moeda de sua escolha;
+</p>
 
 
 ## ⚒ Instalando <a name = "installing"></a>
@@ -18,3 +22,9 @@ $ npm install
 $ npm start
 # O servidor vai inicar na porta <http://localhost:3000>
 ```
+
+## Principais tecnologias utilizadas:
+- React;
+- Redux:
+- JavaScript:
+- Css;
