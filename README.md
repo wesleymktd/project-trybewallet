@@ -1,20 +1,12 @@
 ## 🧐 Sobre
 
 <h4 align="left"> 
-	Esse projeto se trata de uma carteira virtual que faz requisição em uma API, que faz a conversão da moeda, onde temos a possibilidade de salvar a informação, excluir e editar.
+	Esse projeto se trata de uma página html, onde foi trabalhado estilizações em CSS e semântica apropriada em html, para que ele possa ser acessível e melhor ranqueado.
 </h4>
 
 
 ## ⚒ Instalando <a name = "installing"></a>
 
 ```bash
-# Clone o projeto
-$ git clone git@github.com:wesleymktd/project-trybewallet.git
-# Acesse
-$ cd ./project-trybewallet
-# Instale as dependencias
-$ npm install
-# Inicie o projeto
-$ npm start
-# O servidor vai inicar na porta <http://localhost:3000>
+# Esse projeto pode ser visualizado diretamente pela extensão Live Server do Vscode no arquivo index.html que está na raiz do projeto
 ```
