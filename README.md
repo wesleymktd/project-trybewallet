@@ -7,7 +7,10 @@
 - Visualizar uma tabela com seus gastos;
 - Visualizar o gasto total convertido em uma moeda de sua escolha;
 </p>
-
+<div align="center">
+<img src="./src/img/trybe-wallet-a.png" alt="login" width="400px" height="250px">
+<img src="./src/img/my-trybe-wallet-b.png" alt="wallet" width="400px" height="250px">
+</div>
 
 ## ⚒ Instalando <a name = "installing"></a>
 
